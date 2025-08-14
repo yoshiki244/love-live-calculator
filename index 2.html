@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラブカ 必要ハート数計算機</title>
+<style>
+    body { font-family: "Arial", sans-serif; background: #fffafc; color: #333; padding: 20px; }
+    h1 { color: red; text-align: center; }
+    h2 { color: red; font-size: 18px; margin-top: 30px; }
+    .row { display: flex; align-items: center; margin-bottom: 10px; }
+    .icon { font-size: 30px; margin-right: 5px; }
+    input { flex: 1; padding: 5px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background: linear-gradient(to right, pink, purple);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 35px;
+  transform: scaleY(0.82);
+  position: relative;
+}
+.icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.symbol-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(0.1px) translateY(-1px);
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.symbol-text-minus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(0.1px) translateY(-1px);
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+}
+.symbol-text-diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(0.1px) translateY(-1px);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<h1>ラブカ 必要ハート数計算機</h1>
+
+<h2>必要ハート数</h2>
+<div class="row"><span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="#FF3B30" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 40 35" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <path fill="white" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+</div>
+</span><input id="needRed" type="number" placeholder="必要数"> <span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="green" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 100 100" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <polygon fill="white" points="50,0 58,30 85,15 70,42 100,50 70,58 85,85 58,70 50,100 42,70 15,85 30,58 0,50 30,42 15,15 42,30"/>
+</svg>
+</div>
+</span><input id="needGreen" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(255,105,180,0.6)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="needPink" type="number" placeholder="必要数"> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(0,122,255,0.4)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-minus">−</div></div></span><input id="needBlue" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="purple" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-diamond">♦︎</div></div></span><input id="needPurple" type="number" placeholder="必要数"> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="yellow" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="needYellow" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="gray" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg></div></span><input id="needGray" type="number" placeholder="必要数"></div>
+
+<h2>取得ハート数</h2>
+<div class="row"><span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="#FF3B30" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 40 35" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <path fill="white" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+</div>
+</span><input id="getRed" type="number" placeholder="取得数"> <span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="green" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 100 100" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <polygon fill="white" points="50,0 58,30 85,15 70,42 100,50 70,58 85,85 58,70 50,100 42,70 15,85 30,58 0,50 30,42 15,15 42,30"/>
+</svg>
+</div>
+</span><input id="getGreen" type="number" placeholder="取得数"></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(255,105,180,0.6)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="getPink" type="number" placeholder="取得数"> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(0,122,255,0.4)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-minus">−</div></div></span><input id="getBlue" type="number" placeholder="取得数"></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="purple" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-diamond">♦︎</div></div></span><input id="getPurple" type="number" placeholder="取得数"> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="yellow" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="getYellow" type="number" placeholder="取得数"></div>
+
+<button onclick="calculate()">計算する</button>
+
+<h2>計算結果</h2>
+<div class="row"><span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="#FF3B30" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 40 35" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <path fill="white" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+</div>
+</span><input id="resRed" readonly> <span class="icon">
+<div class="icon">
+<svg width="40" height="35" viewBox="0 0 40 35">
+  <path fill="green" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/>
+</svg>
+<svg width="15" height="15" viewBox="0 0 100 100" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <polygon fill="white" points="50,0 58,30 85,15 70,42 100,50 70,58 85,85 58,70 50,100 42,70 15,85 30,58 0,50 30,42 15,15 42,30"/>
+</svg>
+</div>
+</span><input id="resGreen" readonly></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(255,105,180,0.6)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="resPink" readonly> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="rgba(0,122,255,0.4)" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-minus">−</div></div></span><input id="resBlue" readonly></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="purple" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text-diamond">♦︎</div></div></span><input id="resPurple" readonly> <span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="yellow" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg><div class="symbol-text">+</div></div></span><input id="resYellow" readonly></div>
+<div class="row"><span class="icon"><div class="icon"><svg width="40" height="35" viewBox="0 0 40 35"><path fill="gray" d="M20 32s-13.333-9.333-16-16C1 8.333 6.333 2 12 2c3.333 0 6.333 2 8 4 1.667-2 4.667-4 8-4 5.667 0 11 6.333 8 14-2.667 6.667-16 16-16 16z"/></svg></div></span><input id="resGray" readonly></div>
+
+<script>
+function calcHeart(need, get) {
+    return need - get;
+}
+
+function calculate() {
+    let totalGray = 0;
+
+    const types = ["Red","Green","Pink","Blue","Purple","Yellow"];
+    types.forEach(type => {
+        let need = parseInt(document.getElementById("need" + type).value) || 0;
+        let get = parseInt(document.getElementById("get" + type).value) || 0;
+        let result = calcHeart(need, get);
+        if (result < 0) {
+            totalGray += -result;
+            result = 0;
+        }
+        document.getElementById("res" + type).value = result;
+    });
+
+    // Gray heart
+    const needGrayInput = document.getElementById("needGray");
+    let needGrayStr = (needGrayInput && needGrayInput.value ? needGrayInput.value : "").trim();
+    let getGray = totalGray;
+    if (needGrayStr === "") {
+        // 必要数が空欄 → 結果は 0 を出力
+        document.getElementById("resGray").value = 0;
+    } else {
+        let needGray = parseInt(needGrayStr) || 0;
+        document.getElementById("resGray").value = calcHeart(needGray, getGray);
+    }
+}
+</script>
+
+</body>
+</html>
