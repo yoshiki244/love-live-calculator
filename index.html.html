@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラブカ 必要ハート数計算機</title>
+<style>
+    body { font-family: "Arial", sans-serif; background: #fffafc; color: #333; padding: 20px; }
+    h1 { color: red; text-align: center; }
+    h2 { color: red; font-size: 18px; margin-top: 30px; }
+    .row { display: flex; align-items: center; margin-bottom: 10px; }
+    .icon { font-size: 30px; margin-right: 5px; }
+    input { flex: 1; padding: 5px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background: linear-gradient(to right, pink, purple);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<h1>ラブカ 必要ハート数計算機</h1>
+
+<h2>必要ハート数</h2>
+<div class="row"><span class="icon">❤️</span><input id="needRed" type="number" placeholder="必要数"> <span class="icon">💚</span><input id="needGreen" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon">💗</span><input id="needPink" type="number" placeholder="必要数"> <span class="icon">💙</span><input id="needBlue" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon">💜</span><input id="needPurple" type="number" placeholder="必要数"> <span class="icon">💛</span><input id="needYellow" type="number" placeholder="必要数"></div>
+<div class="row"><span class="icon">🩶</span><input id="needGray" type="number" placeholder="必要数"></div>
+
+<h2>取得ハート数</h2>
+<div class="row"><span class="icon">❤️</span><input id="getRed" type="number" placeholder="取得数"> <span class="icon">💚</span><input id="getGreen" type="number" placeholder="取得数"></div>
+<div class="row"><span class="icon">💗</span><input id="getPink" type="number" placeholder="取得数"> <span class="icon">💙</span><input id="getBlue" type="number" placeholder="取得数"></div>
+<div class="row"><span class="icon">💜</span><input id="getPurple" type="number" placeholder="取得数"> <span class="icon">💛</span><input id="getYellow" type="number" placeholder="取得数"></div>
+
+<button onclick="calculate()">計算する</button>
+
+<h2>計算結果</h2>
+<div class="row"><span class="icon">❤️</span><input id="resRed" readonly> <span class="icon">💚</span><input id="resGreen" readonly></div>
+<div class="row"><span class="icon">💗</span><input id="resPink" readonly> <span class="icon">💙</span><input id="resBlue" readonly></div>
+<div class="row"><span class="icon">💜</span><input id="resPurple" readonly> <span class="icon">💛</span><input id="resYellow" readonly></div>
+<div class="row"><span class="icon">🩶</span><input id="resGray" readonly></div>
+
+<script>
+function calcHeart(need, get) {
+    return need - get;
+}
+
+function calculate() {
+    let totalGray = 0;
+
+    const types = ["Red","Green","Pink","Blue","Purple","Yellow"];
+    types.forEach(type => {
+        let need = parseInt(document.getElementById("need" + type).value) || 0;
+        let get = parseInt(document.getElementById("get" + type).value) || 0;
+        let result = calcHeart(need, get);
+        if (result < 0) {
+            totalGray += -result;
+            result = 0;
+        }
+        document.getElementById("res" + type).value = result;
+    });
+
+    // Gray heart
+    let needGray = parseInt(document.getElementById("needGray").value) || 0;
+    let getGray = totalGray;
+    document.getElementById("resGray").value = calcHeart(needGray, getGray);
+}
+</script>
+
+</body>
+</html>
